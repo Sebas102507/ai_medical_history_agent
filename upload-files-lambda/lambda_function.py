@@ -38,7 +38,8 @@ def handler(event, context):
     logging.debug(f"✅ Ready after checking boundary: {boundary} | Len: {len(boundary)}")
     
     try:
-        data = _parseMultipartData(decoded_data, boundary)        
+        data = _parseMultipartData(decoded_data, boundary)    
+        _vectorizeDocumentation(data)    
         return {
             'statusCode': 200,
             'headers': {
@@ -82,10 +83,10 @@ def _parseMultipartData(raw_data, boundary):
 
 
 
-def vectorizeDocumentation(data):
+def _vectorizeDocumentation(data):
     logging.debug(f"🟢 Data: {data}")
     logging.debug(f"🟢 Files to upload: {data['filesNames']}")
-    logging.debug(f"🟢 Files Bytes to upload: {data['filesBytes'][0]}")
+    logging.debug(f"🟢 Files Bytes to upload: {data['filesBytes']}")
     
     
     for file_name, file_content in zip(data['filesNames'], data['filesBytes']):
