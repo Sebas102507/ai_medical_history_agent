@@ -6,8 +6,9 @@ For this project is was purposed, but just one was implemented in AWS.
 
 Below is the implemented architecture:
 
+![1](https://github.com/Sebas102507/loka_challenge/assets/52805660/30bb7f6a-ac0c-4f68-80be-c3caa3a2e79b)
 
-![1](https://github.com/Sebas102507/loka_challenge/assets/52805660/df0a455f-f935-4a67-806b-be9cef45833d)
+
 
 **Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
 
@@ -30,7 +31,7 @@ Below is the implemented architecture:
 
 Non implemented solution:
 
-![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/2b9d8dc6-1d67-4fa4-b3aa-5d5906cca2a7)
+![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/92a1d7e3-db58-489c-b777-6fc9e7b5224e)
 
 
 This an architecture that provides Vectara as the Embedding Model and Vector Database (Corpus) services in once, this could be useful for those cases that we don't want to handle and deploy embedding models and a vector database, this could be a cheper option taking account that it just charges USD 1.25 for 1000 queries and 50MB extra storage (Recommended for small-medium projects) for large projects it's recommended using OpenSearch and SageMaker endpoints.
