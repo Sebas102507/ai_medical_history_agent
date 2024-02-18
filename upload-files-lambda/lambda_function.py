@@ -19,8 +19,8 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 sagemaker_client = boto3.client("sagemaker-runtime",region_name="us-east-1")
 s3 = boto3.client('s3')
-bucket_name = 'boostfs'
-index='sagemaker_docs'
+bucket_name = os.environ.get("BUCKET_NAME")
+index=os.environ.get("OPEN_SEARCH_INDEX")
 EMBEDDING_ENDPOINT= os.environ.get("EMBEDDING_MODEL_ENDPOINT")
 opensearch_auth = (os.environ.get("OPEN_SEARCH_USERNAME"), os.environ.get("OPEN_SEARCH_PASSWORD"))
 open_search_domain= os.environ.get("OPEN_SEARDCH_DOMAIN")
