@@ -34,7 +34,7 @@ Non implemented solution:
 ![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/92a1d7e3-db58-489c-b777-6fc9e7b5224e)
 
 
-This an architecture that provides Vectara as the Embedding Model and Vector Database (Corpus) services in once, this could be useful for those cases that we don't want to handle and deploy embedding models and a vector database, this could be a cheper option taking account that it just charges USD 1.25 for 1000 queries and 50MB extra storage (Recommended for small-medium projects) for large projects it's recommended using OpenSearch and SageMaker endpoints.
+This an architecture that provides Vectara as the Embedding Model and Vector Database (Corpus) services in once, this could be useful for those cases that we don't want to handle and deploy embedding models and a vector database, this is a cheaper option taking account that it just charges USD 1.25 for 1000 queries and 50MB extra storage (Recommended for small-medium projects) for large projects it's recommended using OpenSearch and SageMaker endpoints.
 
 **Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
 
