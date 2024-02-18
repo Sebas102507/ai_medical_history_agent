@@ -47,3 +47,7 @@ This an architecture that provides Vectara as the Embedding Model and Vector Dat
 **Files Encoder:** This component is responsible for encoding files into a format suitable for processing by the LLM.
 
 **UploadFiles:** Lambda that handles the uploading of files from the client.
+
+
+## DEMO (VIDEO):
+https://youtu.be/PbWBFHeGiIM
