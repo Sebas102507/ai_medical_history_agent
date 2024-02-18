@@ -1,0 +1,12 @@
+FROM public.ecr.aws/lambda/python:3.11
+
+# Set the HOME environment variable
+ENV HOME=/tmp
+
+# Copy function code and requirements
+COPY requirements.txt lambda_function.py ${LAMBDA_TASK_ROOT}/
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["lambda_function.handler"]
