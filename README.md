@@ -26,3 +26,25 @@ Below is the implemented architecture:
 **UploadFiles:** Lambda that handles the uploading of files from the client.
 
 **Bulk Arrow from Vector Database to Embedding:** This indicates that there files chunks will be uploaded to the vector database.
+
+
+Non implemented solution:
+
+![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/2b9d8dc6-1d67-4fa4-b3aa-5d5906cca2a7)
+
+
+This an architecture that provides Vectara as the Embedding Model and Vector Database (Corpus) services in once, this could be useful for those cases that we don't want to handle and deploy embedding models and a vector database, this could be a cheper option taking account that it just charges USD 1.25 for 1000 queries and 50MB extra storage (Recommended for small-medium projects) for large projects it's recommended using OpenSearch and SageMaker endpoints.
+
+**Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
+
+**:** A database designed to store vectors, which are typically the output of embedding models using Open Search.
+
+**Embedding Model and Vector Database** This component is responsible for transforming input data into vector embeddings.These embeddings are then used by the vector database to perform similarity searches.
+
+**AskDocumentation Agent:** Lambda that uses the sagemkaer-model-enpoint to answer questions or retrieve information from documentation.
+
+**Client:** The user interface where clients can submit their questions and receive answers. It interacts with the WebSocket API and Rest API.
+
+**Files Encoder:** This component is responsible for encoding files into a format suitable for processing by the LLM.
+
+**UploadFiles:** Lambda that handles the uploading of files from the client.
