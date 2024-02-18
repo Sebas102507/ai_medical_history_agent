@@ -38,8 +38,6 @@ This an architecture that provides Vectara as the Embedding Model and Vector Dat
 
 **Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
 
-**:** A database designed to store vectors, which are typically the output of embedding models using Open Search.
-
 **Embedding Model and Vector Database** This component is responsible for transforming input data into vector embeddings.These embeddings are then used by the vector database to perform similarity searches.
 
 **AskDocumentation Agent:** Lambda that uses the sagemkaer-model-enpoint to answer questions or retrieve information from documentation.
