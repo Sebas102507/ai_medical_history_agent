@@ -12,7 +12,7 @@ Below is the implemented architecture:
 
 **Inference Generator:** This component generates inferences by utilizing the LLM Mixtral 8x7b to process and interpret queries or documents, thus producing outputs based on the analyzed data.
 
-**Vector Database:** A database specifically designed to store vectors, which are typically produced by embedding models and are utilized within OpenSearch.
+**Vector Database:** Use to store vectors produced by the embedding model and are utilized within OpenSearch.
 
 **Embedding Model (GPT-6B Embedding):** This component transforms input data into vector embeddings. These embeddings are then leveraged by the vector database to carry out similarity searches.
 
