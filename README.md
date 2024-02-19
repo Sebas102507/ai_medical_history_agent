@@ -1,8 +1,8 @@
 # Loka Challenge
 
-This Repository was created for the Loka Challenge, which main idea was to create a AWS architecture to talk with a LLM about a bouch of .md files containing SageMaker documentation.
+This repository was created for the Loka Challenge, whose main idea was to create an AWS architecture to communicate with an LLM about a bunch of .md files containing SageMaker documentation.
 
-For this project it was proposed two alternatives, but just one was implemented in AWS. 
+For this project, two alternatives were proposed, but only one was implemented in AWS.
 
 Below is the implemented architecture:
 
