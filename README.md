@@ -10,26 +10,25 @@ Below is the implemented architecture:
 
 
 
-**Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
+**Inference Generator:** This component generates inferences by utilizing the LLM Mixtral 8x7b to process and interpret queries or documents, thus producing outputs based on the analyzed data.
 
-**Vector Database:** A database designed to store vectors, which are typically the output of embedding models using Open Search.
+**Vector Database:** A database specifically designed to store vectors, which are typically produced by embedding models and are utilized within OpenSearch.
 
-**Embedding Model:** gpt 6b embedding: This component is responsible for transforming input data into vector embeddings.These embeddings are then used by the vector database to perform similarity searches.
+**Embedding Model (GPT-6B Embedding):** This component transforms input data into vector embeddings. These embeddings are then leveraged by the vector database to carry out similarity searches.
 
-**Query:** This is the section where queries are processed. It includes a WebSocket API, indicating a streaming communication between LLM and the client.
+**Query:** This section processes queries. It includes a WebSocket API, which facilitates streaming communication between the LLM and the client.
 
-**AskDocumentation Agent:** Lambda that uses the sagemkaer-model-enpoint to answer questions or retrieve information from documentation.
+**AskDocumentation Agent:** A Lambda function that employs the SageMaker model endpoint to respond to questions or retrieve information from the documentation.
 
-**Client:** The user interface where clients can submit their questions and receive answers. It interacts with the WebSocket API and Rest API.
+**Client:** The user interface where clients can pose their questions and obtain answers. It interfaces with both the WebSocket API and the REST API.
 
-**Files Encoder:** This component is responsible for encoding files into a format suitable for processing by the LLM.
+**Files Encoder:** This component encodes files into a format that is suitable for processing by the LLM.
 
-**UploadFiles:** Lambda that handles the uploading of files from the client.
+**UploadFiles:** A Lambda function that manages the uploading of files from the client.
 
-**Bulk Arrow from Vector Database to Embedding:** This indicates that there files chunks will be uploaded to the vector database.
+**Bulk Arrow from Vector Database to Embedding:** This denotes that chunks of files will be uploaded to the vector database.
 
-
-Non implemented solution:
+Non-Implemented Solution:
 
 ![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/92a1d7e3-db58-489c-b777-6fc9e7b5224e)
 
