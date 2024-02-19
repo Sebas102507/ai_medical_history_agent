@@ -34,19 +34,19 @@ Non implemented solution:
 ![2](https://github.com/Sebas102507/loka_challenge/assets/52805660/92a1d7e3-db58-489c-b777-6fc9e7b5224e)
 
 
-This is an architecture that provides Vectara as the Embedding Model and Vector Database (Corpus) services in once, this could be useful for those cases that we don't want to handle and deploy embedding models and a vector database, this is a cheaper option taking account that it just charges USD 1.25 for 1000 queries and 50MB extra storage (Recommended for small-medium projects) for large projects it's recommended using OpenSearch and SageMaker endpoints.
+This architecture provides Vectara as an integrated service for the Embedding Model and Vector Database (Corpus), which could be beneficial in scenarios where there is no desire to manage and deploy separate embedding models and a vector database. It offers a cost-effective solution, charging only USD 1.25 for 1,000 queries and an additional 50MB of storage, making it suitable for small to medium-sized projects. For larger projects, the use of OpenSearch and SageMaker endpoints is recommended.
 
-**Inference Generator:** This component is responsible for generating inferences, which  uses the LLM Mixtral 8x7b to process and interpret queries or documents to produce outputs based on the data it analyzes.
+**Inference Generator:** This component is tasked with generating inferences and utilizes the LLM Mixtral 8x7b to process and interpret queries or documents, thereby producing outputs informed by the data it analyzes.
 
-**Embedding Model and Vector Database** This component is responsible for transforming input data into vector embeddings.These embeddings are then used by the vector database to perform similarity searches.
+**Embedding Model and Vector Database:** This component is accountable for transforming input data into vector embeddings. These embeddings are then employed by the vector database to conduct similarity searches.
 
-**AskDocumentation Agent:** Lambda that uses the sagemkaer-model-enpoint to answer questions or retrieve information from documentation.
+**AskDocumentation Agent:** A Lambda function that uses the SageMaker model endpoint to answer questions or retrieve information from the documentation.
 
-**Client:** The user interface where clients can submit their questions and receive answers. It interacts with the WebSocket API and Rest API.
+**Client:** The user interface where clients can submit their queries and receive responses. It interfaces with both the WebSocket API and REST API.
 
-**Files Encoder:** This component is responsible for encoding files into a format suitable for processing by the LLM.
+**Files Encoder:** This component is charged with encoding files into a format that is amenable for processing by the LLM.
 
-**UploadFiles:** Lambda that handles the uploading of files from the client.
+**UploadFiles:** A Lambda function that manages the uploading of files from the client.
 
 
 ## DEMO (VIDEO):
