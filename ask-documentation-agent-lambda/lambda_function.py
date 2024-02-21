@@ -129,7 +129,8 @@ class DocumentationAgent():
           if (not connection_id==None):
             self._sendDataToClientAPIGateway(connection_id,output)
             return output
-          else:    
+          else:
+            output= asyncio.run(self.sendStreamingResponse(connection_id,formatted_prompt))
             return output
 
       def _sendDataToClientAPIGateway(self,connection_id,data):
@@ -137,4 +138,29 @@ class DocumentationAgent():
             ConnectionId=connection_id,
             Data=json.dumps(data, ensure_ascii=False)
         )
-        logging.debug(f"ℹ️🔔Response: {response}")        
+        logging.debug(f"ℹ️🔔Response: {response}") 
+
+
+
+    async def sendStreamingResponse(self,connection_id,input_prompt):
+        fullOutput=""
+        async for value in self._getAgentAsyncResponse(input_prompt):
+            if (awsManager==None):
+                logging.debug(value)
+            else:
+                awsManager.sendDataToClientAPIGateway(connection_id,value)
+            if(value!="[¬AGENT_END¬]"):fullOutput=fullOutput+value
+        return  fullOutput
+        
+           
+    async def _getAgentAsyncResponse(self,prompt) -> AsyncIterable[str]:
+        task = asyncio.create_task(self.llm.apredict(prompt))
+        try:
+            async for token in self.llm.callbacks[0].aiter():
+                yield token
+        except Exception as e:
+            print(f"Caught exception: {e}")
+        finally:
+            yield "[¬AGENT_END¬]"
+            self.llm.callbacks[0].done.set()
+        await task
