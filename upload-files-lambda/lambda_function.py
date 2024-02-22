@@ -91,6 +91,7 @@ def _vectorizeDocumentation(data):
     
     for file_name, file_content in zip(data['filesNames'], data['filesBytes']):
         delete_from_s3(file_name)
+        delete_from_open_search(file_name)
         upload_to_s3(file_name, file_content)
                 
         loader = S3FileLoader(bucket_name, file_name)
@@ -123,6 +124,21 @@ def _vectorizeDocumentation(data):
 def delete_from_s3(file_name):
     try:
         s3.delete_object(Bucket=bucket_name, Key=file_name)
+        logging.debug(f"✅ File {file_name} deleted from S3.")
+    except Exception as e:
+        logging.error(f"🚨 Error deleting file from S3: {e}")
+
+
+def delete_from_open_search(id):
+    try:
+        search = OpenSearch(
+        hosts=[{'host': open_search_domain, 'port': 443}],
+        http_auth=opensearch_auth,
+        use_ssl=True,
+        verify_certs=True,
+        ssl_show_warn=False
+        )
+        response = search.delete(index=index, id=id)
         logging.debug(f"✅ File {file_name} deleted from S3.")
     except Exception as e:
         logging.error(f"🚨 Error deleting file from S3: {e}")
