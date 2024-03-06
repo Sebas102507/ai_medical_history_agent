@@ -1,6 +1,5 @@
-# Loka Challenge
+# AI Medical History Agent
 
-This repository was created for the Loka Challenge, whose main idea was to create an AWS architecture to communicate with an LLM about a bunch of .md files containing SageMaker documentation.
 
 For this project, two alternatives were proposed, but only one was implemented in AWS.
 
